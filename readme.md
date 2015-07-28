@@ -20,7 +20,7 @@ The class’ constructor takes two required parameters (your Prowl API Key and t
 #require "Prowl.class.nut:1.0.0"
 
 // Prowl Constants
-const API_KEY = "";
+const API_KEY = "YOUR-API-KEY";
 const PROWL_APP = "Application title";
 
 prowl <- Prowl(API_KEY, PROWL_APP);
@@ -30,13 +30,15 @@ prowl <- Prowl(API_KEY, PROWL_APP);
 
 ### push(*event, description, cb*)
 
-The *push* method sends a push notification to any other device running Prowl.
+The *push* method sends a push notification to any other device running Prowl. It takes three required parameters( an event, a description, and a callback).  The callback has three parameters (error, response, and data).
 
-| Parameter   | Type      | Description  |
---------------------------------------------------------------------|
-| event           | string     | subject for push message |
-| description  | string     | the push message |
-| cb                | function | the callback function |
+
+| Parameter   | Type      | Default | Description  |
+| ----------- | --------- | ------- | ----------- |
+| event       | string    | N/A     | Subject for push message |
+| description | string    | N/A     | The push message |
+| cb          | function  | N/A     | A callback function |
+
 
 ```squirrel
 prowl.push("Oh Snaps!", "This is a message from your Electric Imp", function(err, resp, data) {
