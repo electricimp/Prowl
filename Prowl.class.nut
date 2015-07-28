@@ -1,4 +1,4 @@
-// Copyright (c) 2013 Electric Imp
+// Copyright (c) 2015 Electric Imp
 // This file is licensed under the MIT License
 // http://opensource.org/licenses/MIT
 
@@ -15,7 +15,7 @@ class Prowl {
         this._appName = appName;
     }
 
-    function push(event, description, cb) {
+    function push(event, description, cb = null {
         local data = {
             "apikey" : _apiKey,
             "url" : http.agenturl(),
@@ -28,9 +28,9 @@ class Prowl {
         local resp = request.sendsync();
 
         if (resp.statuscode != 200) {
-            cb("Prowl failed: " + resp.statuscode, resp, resp.body);
+            if (cb) cb(resp.body, resp, null);
         } else {
-            cb(null, resp, resp.body);
+            if (cb) cb(null, resp, resp.body);
         }
     }
 }
