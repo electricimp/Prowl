@@ -34,18 +34,3 @@ class Prowl {
         }
     }
 }
-
-// Prowl Constants
-const API_KEY = "39cb270dc01bc0ad4f7f5a90e581c73faa991abe";
-const PROWL_APP = "Prowl Library Test";
-
-prowl <- Prowl(API_KEY, PROWL_APP)
-
-// Example
-prowl.push("Oh Snaps!", "This is a message from your Electric Imp", function(err, resp, data) {
-    if(err) {
-        server.log(err);
-    } else {
-        server.log(format("%i - %s", resp.statuscode, data));
-    }
-});
