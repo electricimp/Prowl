@@ -1,9 +1,9 @@
 #Prowl
 The Prowl library wraps [Prowl's API](http://www.prowlapp.com/) for sending push notifications for any other device running Prowl.
 
-**To add this library to your project, add `#require "Prowl.class.nut:1.0.0"` to the top of your device code.**
+**To add this library to your project, add `#require "Prowl.class.nut:1.0.1"` to the top of your device code.**
 
-You can view the library’s source code on [GitHub](https://github.com/electricimp/prowl/tree/v1.0.0).
+You can view the library’s source code on [GitHub](https://github.com/electricimp/prowl/tree/v1.0.1).
 
 ##Class Usage
 
@@ -15,7 +15,7 @@ You can view the library’s source code on [GitHub](https://github.com/electric
 The class’ constructor takes two required parameters (your Prowl API Key and the name of your Prowl application):
 
 ```squirrel
-#require "Prowl.class.nut:1.0.0"
+#require "Prowl.class.nut:1.0.1"
 
 prowl <- Prowl("<-- API_KEY -->", "<-- APPLICATION_NAME -->");
 ```
@@ -39,7 +39,7 @@ An optinoal callback can be included that will be invoked upon completion of the
 - *data* is the body of the response.
 
 ```squirrel
-prowl.push("Alert!", "Temperature out of range (" + temp + "C), function(error, resp, data) {
+prowl.push("Alert!", "Temperature out of range (" + temp + "C)", function(error, resp, data) {
     // If an error occured, handle it
     if(error) {
         server.error(error);

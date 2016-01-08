@@ -4,7 +4,7 @@
 
 class Prowl {
 
-    static version = [1,0,0];
+    static version = [1,0,1];
 
     _apiKey = null;
     _appName = null;
@@ -15,7 +15,7 @@ class Prowl {
         this._appName = appName;
     }
 
-    function push(event, description, cb = null {
+    function push(event, description, cb = null) {
         local data = {
             "apikey" : _apiKey,
             "url" : http.agenturl(),
