@@ -7,6 +7,8 @@ You can view the library’s source code on [GitHub](https://github.com/electric
 
 ##Class Usage
 
+### Constructor: Prowl(*apiKey, appName*)
+
 | Parameter     | Type         | Default | Description |
 | ------------- | ------------ | ------- | ----------- |
 | apiKey        | string       | N/A     | A Prowl API Key |
@@ -17,7 +19,7 @@ The class’ constructor takes two required parameters (your Prowl API Key and t
 ```squirrel
 #require "Prowl.class.nut:1.0.1"
 
-prowl <- Prowl("<-- API_KEY -->", "<-- APPLICATION_NAME -->");
+prowl <- Prowl("<YOUR_API_KEY>", "<YOUR_APPLICATION_NAME>");
 ```
 
 ## Class Methods
@@ -32,10 +34,10 @@ prowl <- Prowl("<-- API_KEY -->", "<-- APPLICATION_NAME -->");
 
 The *push* method sends a push notification to any other device running Prowl.
 
-An optinoal callback can be included that will be invoked upon completion of the request. The callback requires three parameters: *error*, *response*, *data*:
+An optional callback can be included that will be invoked upon completion of the request. The callback requires three parameters: *error*, *response*, *data*:
 
 - *error* is a string describing the error (or null if no error occured).
-- *response* is the [HTTP response table] from the request.
+- *response* is the HTTP response table from the request.
 - *data* is the body of the response.
 
 ```squirrel
@@ -49,7 +51,6 @@ prowl.push("Alert!", "Temperature out of range (" + temp + "C)", function(error,
     server.log("Sent Prowl push notification!");
 });
 ```
-
 
 ## License
 
